@@ -1,0 +1,24 @@
+:root {
+  /* Refined Green Palette */
+  --primary: #2d6a4f;      /* Deep Emerald */
+  --primary-light: #d8f3dc; /* Very Soft Mint */
+  --accent: #95d5b2;        /* Pastel Green */
+  --dark: #1b4332;          /* Forest Night */
+
+  /* Neutral tones for aesthetics */
+  --bg: #fcfdfc;            /* Clean, almost white */
+  --text-main: #2d3436;     /* Soft black for readability */
+  --text-muted: #636e72;    /* Grey for dates/metadata */
+  
+  /* Glassmorphism & Elevation */
+  --shadow: 0 10px 30px rgba(27, 67, 50, 0.08);
+  --glass: rgba(255, 255, 255, 0.8);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.6;
+}
