@@ -1,0 +1,40 @@
+$star-color: #ffc107;
+$star-empty: #4a4a4a;
+$star-hover: #ffd54f;
+
+.star-rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:not(.readonly) {
+        cursor: pointer;
+    }
+
+    &.readonly {
+        pointer-events: none;
+    }
+}
+
+.star {
+    font-size: 1.5rem;
+    color: $star-empty;
+    transition: all 0.15s ease;
+    user-select: none;
+
+    &.filled {
+        color: $star-color;
+        text-shadow: 0 0 8px rgba($star-color, 0.4);
+    }
+
+    .star-rating:not(.readonly) &:hover {
+        transform: scale(1.2);
+        color: $star-hover;
+    }
+}
+
+.rating-text {
+    margin-left: 0.5rem;
+    font-size: 0.9rem;
+    color: #888;
+}
