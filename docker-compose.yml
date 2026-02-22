@@ -12,7 +12,7 @@ services:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
   backend:
-    build: 
+    build:
       context: ./Backend/GreenBlog.Api
       dockerfile: Dockerfile
     container_name: greenblog_backend
@@ -27,4 +27,4 @@ services:
     restart: unless-stopped
     command: tunnel run
     environment:
-      - TUNNEL_TOKEN=e
+      - TUNNEL_TOKEN=eyJhIjoiMGMyOWM2NTU2ZmM1ZDg1NzIzMTg5NjA2OGQyNjVkNDkiLCJ0IjoiZTM2ZWQ5ZmEtMTkwZS00NjI2LWI3MjgtNzQyYmQ1YzcxZWY2IiwicyI6Ik5qSXpNVEZpWWpBdE4ySmxNQzAwTVRVeUxXSXdaakl0TWpObFpUYzNNbVExWWpRNSJ9
