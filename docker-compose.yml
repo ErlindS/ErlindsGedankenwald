@@ -1,0 +1,30 @@
+services:
+  angular-web:
+    image: nginx:alpine
+    container_name: angular_website
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      # Map the compiled dist folder to the nginx html folder
+      - ./Frontend/dist/Frontend/browser:/usr/share/nginx/html:ro
+      # Map the custom nginx config for /api routing
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+
+  backend:
+    build: 
+      context: ./Backend/GreenBlog.Api
+      dockerfile: Dockerfile
+    container_name: greenblog_backend
+    restart: unless-stopped
+    volumes:
+      # Persist the history.json outside the container so it survives restarts
+      - ./Backend/data:/app/data
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare_tunnel
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=e

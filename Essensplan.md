@@ -35,13 +35,13 @@ Mi: Tacos (Hard Shell oder Soft)
 Do: Hot Dogs
 Fr: Burritos (vollgepackt mit Reis & Bohnen)
 Sa: Kartoffeltaschen / Loaded Fries (Fritten mit Toppings)
-So: Mac 'n' Cheese oder Pancakes mit Bacon
+So: Mac 'n' Cheese oder Pancakes
 
 Beilagen: Milchshakes, 
 
 
 Morgens: French Toast, Haferflocken (Overnight Oats/Porridge), Baked Beans, Smoothie-Bowls.
-Beilagen: Pfannkuchen, Milchshakes, Cole Slaw (Krautsalat), Süßkartoffel-Pommes, Karamelisierte Äpfel, Milch reis
+Beilagen: Pfannkuchen, Milchshakes, Cole Slaw (Krautsalat), Süßkartoffel-Pommes, Karamelisierte Äpfel, Milch reis, Mochi, Tomaten Soße, Tomatensoßen, Weinblätter
 Abends-Extra: Hummus-Dip, Gefüllte Weinblätter, Bruschetta.
 
 Grundsätzlich morgens immer Früchte / Abends Gemüse?

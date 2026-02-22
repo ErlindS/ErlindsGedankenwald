@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "XOt8n4ioVj0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\erlin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\erlin\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

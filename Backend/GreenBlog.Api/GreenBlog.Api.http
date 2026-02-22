@@ -1,0 +1,6 @@
+@GreenBlog.Api_HostAddress = http://localhost:5291
+
+GET {{GreenBlog.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
