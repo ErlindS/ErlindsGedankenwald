@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -57,13 +57,21 @@ export class Essensplan implements OnInit {
         date: new Date().toLocaleDateString('de-DE') // e.g., 22.02.2026
     };
 
-    constructor(private http: HttpClient) { }
+    constructor(
+        private http: HttpClient,
+        @Inject(PLATFORM_ID) private platformId: Object
+    ) { }
 
     ngOnInit(): void {
         this.fetchHistoryData();
     }
 
     fetchHistoryData(): void {
+        // Skip fetching during Server-Side Rendering (SSR) build process
+        if (!isPlatformBrowser(this.platformId)) {
+            return;
+        }
+
         // Fetch history data from our .NET backend
         // In local dev, proxy could be setup or direct URL. Assuming proxy configuration or same host deployment.
         // For development against the local .NET server directly if Nginx proxy is not yet running:

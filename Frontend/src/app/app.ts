@@ -9,9 +9,7 @@ import { Footer } from './footer/footer';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    PostCard,
     Header,
-    Hero,
     Footer
   ],
   templateUrl: './app.html',
