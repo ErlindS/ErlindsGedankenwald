@@ -39,19 +39,6 @@
             </div>
         </div>
 
-        <div class="recipe-body" [class.is-restday]="activeDayData.isRestday">
-            <div class="recipe-section" *ngFor="let section of activeDayData.sections">
-                <h4>{{ section.title }}</h4>
-                <ul class="recipe-items">
-                    <li *ngFor="let item of section.items">{{ item }}</li>
-                </ul>
-            </div>
-
-            <p class="variation-text" *ngIf="activeDayData.variation">
-                {{ activeDayData.variation }}
-            </p>
-        </div>
-
         <!-- Recipe History Section -->
         <div class="history-container">
             <div class="history-title-wrapper">
@@ -88,68 +75,4 @@
         </div>
     </div>
 
-    <!-- General Extras Section -->
-    <div class="general-extras-container" *ngIf="activeWeekId === 1">
-        <!-- Just showing global extras once or at bottom -->
-        <h3 class="general-extras-title">💡 Allgemeine Ideen & Extras</h3>
-        <p class="general-hint">Grundsätzlich: Morgens immer Früchte 🍎 / Abends Gemüse 🥦</p>
-
-        <div class="extras-grid">
-            <div class="general-extra-card">
-                <div class="extra-icon">🌅</div>
-                <div class="extra-content">
-                    <h4>Morgens</h4>
-                    <p>French Toast, Haferflocken (Oats/Porridge), Baked Beans, Smoothie-Bowls.</p>
-                </div>
-            </div>
-            <div class="general-extra-card">
-                <div class="extra-icon">🍟</div>
-                <div class="extra-content">
-                    <h4>Beilagen</h4>
-                    <p>Pfannkuchen, Milchshakes, Cole Slaw, Süßkartoffel-Pommes, Weinblätter, Mochi.</p>
-                </div>
-            </div>
-            <div class="general-extra-card">
-                <div class="extra-icon">🌙</div>
-                <div class="extra-content">
-                    <h4>Abends-Extra</h4>
-                    <p>Hummus-Dip, Gefüllte Weinblätter, Bruschetta, Zapiekanka.</p>
-                </div>
-            </div>
-        </div>
-        <!-- Add Entry Modal -->
-        <div class="modal-overlay" *ngIf="showAddModal" (click)="closeAddModal()">
-            <div class="modal-content" (click)="$event.stopPropagation()">
-                <div class="modal-header">
-                    <h3>Neuen Eintrag für {{ activeDayData.name }}</h3>
-                    <button class="close-btn" (click)="closeAddModal()">✕</button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>Datum</label>
-                        <input type="text" [(ngModel)]="newEntry.date" placeholder="z.B. 22.02.2026">
-                    </div>
-                    <div class="form-group">
-                        <label>Spezifisches Rezept</label>
-                        <input type="text" [(ngModel)]="newEntry.specificName" placeholder="z.B. Spaghetti Carbonara">
-                    </div>
-                    <div class="form-group">
-                        <label>Bewertung (Sterne)</label>
-                        <input type="number" min="1" max="5" [(ngModel)]="newEntry.rating">
-                    </div>
-                    <div class="form-group">
-                        <label>Kommentar</label>
-                        <textarea [(ngModel)]="newEntry.comment" rows="3" placeholder="Wie war's?"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>Rezept Link (optional)</label>
-                        <input type="text" [(ngModel)]="newEntry.recipeLink" placeholder="https://...">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="cancel-btn" (click)="closeAddModal()">Abbrechen</button>
-                    <button class="save-btn" (click)="saveNewEntry()">Speichern</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>

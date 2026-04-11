@@ -3,11 +3,6 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-interface RecipeSection {
-    title: string;
-    items: string[];
-}
-
 export interface RecipeHistory {
     id: string;
     date: string;
@@ -24,9 +19,6 @@ interface MealDay {
     emoji: string;
     type: string;
     title: string;
-    sections: RecipeSection[];
-    variation?: string;
-    isRestday?: boolean;
     history?: RecipeHistory[];
 }
 
@@ -131,176 +123,25 @@ export class Essensplan implements OnInit {
             description: 'Vielfalt aus Süd- & Ostasien',
             days: [
                 {
-                    id: 'montag', name: 'Montag', short: 'Mo', emoji: '🍛', type: 'Curry', title: 'Vegetarisches Kokos-Gemüse-Curry',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                '150 g Gemüse (z. B. Brokkoli, Paprika, Karotte)',
-                                '100 g Tofu (oder Kichererbsen)',
-                                '200 ml Kokosmilch',
-                                '1 TL Currypaste oder Currypulver',
-                                '1 kleine Zwiebel',
-                                '1 TL Öl',
-                                'Salz / Sojasauce',
-                                'Reis als Beilage'
-                            ]
-                        },
-                        {
-                            title: '👨‍🍳 Zubereitung',
-                            items: [
-                                'Zwiebel in Öl anschwitzen',
-                                'Currypaste kurz anrösten',
-                                'Kokosmilch zugeben',
-                                'Gemüse & Protein einlegen, 10–12 Min köcheln',
-                                'Abschmecken, mit Reis servieren'
-                            ]
-                        }
-                    ],
-                    variation: '➡️ Variierbar: Currysorte, Gemüse, Protein, Schärfe'
+                    id: 'montag', name: 'Montag', short: 'Mo', emoji: '🍛', type: 'Curry', title: 'Vegetarisches Curry'
                 },
                 {
-                    id: 'dienstag', name: 'Dienstag', short: 'Di', emoji: '🥢', type: 'Wok', title: 'Asiatische Wok-Pfanne mit Tofu',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                '150 g gemischtes Gemüse',
-                                '120 g Tofu',
-                                '1 EL Sojasauce',
-                                '1 TL Stärke + 3 EL Wasser',
-                                '1 TL Öl',
-                                'Knoblauch / Ingwer (optional)',
-                                'Reis oder Nudeln'
-                            ]
-                        },
-                        {
-                            title: '👨‍🍳 Zubereitung',
-                            items: [
-                                'Tofu würfeln, scharf anbraten, beiseitestellen',
-                                'Gemüse im Wok braten',
-                                'Tofu zurückgeben',
-                                'Sojasauce + Stärkemischung zugeben',
-                                'Kurz glasieren'
-                            ]
-                        }
-                    ],
-                    variation: '➡️ Variierbar: Sauce (Erdnuss, süß-sauer, scharf)'
+                    id: 'dienstag', name: 'Dienstag', short: 'Di', emoji: '🥢', type: 'Wok', title: 'Asiatische Wok-Pfanne mit Tofu'
                 },
                 {
                     id: 'mittwoch', name: 'Mittwoch', short: 'Mi', emoji: '🍜', type: 'Suppe', title: 'Vegetarische Nudelsuppe (Basis)',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                '500 ml Wasser',
-                                '1 Stück Ingwer',
-                                '1 EL Sojasauce oder Miso',
-                                '80 g Nudeln',
-                                'Gemüse (z. B. Pak Choi, Pilze)',
-                                'Optional: Ei oder Tofu'
-                            ]
-                        },
-                        {
-                            title: '👨‍🍳 Zubereitung',
-                            items: [
-                                'Wasser + Ingwer 10 Min köcheln',
-                                'Würzen (Soja/Miso)',
-                                'Nudeln & Gemüse 5 Min garen',
-                                'Toppings oben drauf'
-                            ]
-                        }
-                    ],
-                    variation: '➡️ Variierbar: Ramen / Pho / scharf / mild'
                 },
                 {
-                    id: 'donnerstag', name: 'Donnerstag', short: 'Do', emoji: '🍚', type: 'Reis', title: 'Gebratener Reis (Basic Fried Rice)',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                '200 g gekochter Reis (vom Vortag!)',
-                                '100 g Gemüse',
-                                '1 Ei oder 100 g Tofu',
-                                '1 EL Sojasauce',
-                                '1 TL Öl',
-                                'Sesam (optional)'
-                            ]
-                        },
-                        {
-                            title: '👨‍🍳 Zubereitung',
-                            items: [
-                                'Öl erhitzen',
-                                'Ei oder Tofu anbraten',
-                                'Gemüse dazu',
-                                'Reis einarbeiten',
-                                'Sojasauce unterheben'
-                            ]
-                        }
-                    ],
-                    variation: '➡️ Variierbar: Kimchi, Teriyaki, Sesamöl'
+                    id: 'donnerstag', name: 'Donnerstag', short: 'Do', emoji: '🍚', type: 'Reis', title: 'Gebratener Reis (Basic Fried Rice)'
                 },
                 {
-                    id: 'freitag', name: 'Freitag', short: 'Fr', emoji: '🥗', type: 'Bowl', title: 'Asiatische Gemüse-Bowl',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                '150 g Reis oder Quinoa',
-                                '150 g Gemüse (roh + gegart)',
-                                '100 g Protein',
-                                '1 EL Sesamsauce oder Erdnusssauce'
-                            ]
-                        },
-                        {
-                            title: '👨‍🍳 Zubereitung',
-                            items: [
-                                'Basis kochen',
-                                'Gemüse schneiden / kurz anbraten',
-                                'Alles in Schüssel schichten',
-                                'Sauce darüber'
-                            ]
-                        }
-                    ],
-                    variation: '➡️ Variierbar: Sauce + Textur'
+                    id: 'freitag', name: 'Freitag', short: 'Fr', emoji: '🥗', type: 'Bowl', title: 'Asiatische Gemüse-Bowl'
                 },
                 {
-                    id: 'samstag', name: 'Samstag', short: 'Sa', emoji: '🥟', type: 'Pfannkuchen', title: 'Gemüse-Pfannkuchen (Korean Jeon)',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                '100 g Gemüse fein gehackt',
-                                '1 Ei',
-                                '2 EL Mehl',
-                                'Salz',
-                                'Öl'
-                            ]
-                        },
-                        {
-                            title: '👨‍🍳 Zubereitung',
-                            items: [
-                                'Alles vermengen',
-                                'Flach in Pfanne ausbacken',
-                                'Mit Sojasauce dippen'
-                            ]
-                        }
-                    ],
-                    variation: '➡️ Variierbar: Gemüse, Gewürze'
+                    id: 'samstag', name: 'Samstag', short: 'Sa', emoji: '🥟', type: 'Pfannkuchen', title: 'Gemüse-Pfannkuchen (Korean Jeon)'
                 },
                 {
-                    id: 'sonntag', name: 'Sonntag', short: 'So', emoji: '🎉', type: 'Frei', title: 'Wiederholung oder Resteverwertung',
-                    isRestday: true,
-                    sections: [
-                        {
-                            title: '💡 Ideen',
-                            items: [
-                                '⭐ Lieblingsgericht der Woche wiederholen',
-                                '🥬 Alles verwerten, was übrig ist',
-                                '🌶️ Neue Variation ausprobieren'
-                            ]
-                        }
-                    ]
+                    id: 'sonntag', name: 'Sonntag', short: 'So', emoji: '🎉', type: 'Frei', title: 'Wiederholung oder Resteverwertung'
                 }
             ]
         },
@@ -313,108 +154,24 @@ export class Essensplan implements OnInit {
             days: [
                 {
                     id: 'montag', name: 'Montag', short: 'Mo', emoji: '🍝', type: 'Pasta', title: 'Nudeln mit Sauce',
-                    sections: [
-                        {
-                            title: '🥕 Varianten',
-                            items: [
-                                'Pesto (Basilikum oder Rosso)',
-                                'Carbonara',
-                                'Bolognese'
-                            ]
-                        }
-                    ],
-                    history: [
-                        {
-                            id: 'history_pasta_1',
-                            date: '15.02.2026',
-                            specificName: 'Spaghetti Carbonara (Originalrezept)',
-                            rating: 5,
-                            comment: 'Absolut genial! Ohne Sahne, nur mit Guanciale, Ei und Pecorino. Wird ab sofort immer so gemacht.'
-                        },
-                        {
-                            id: 'history_pasta_2',
-                            date: '02.01.2026',
-                            specificName: 'Penne mit veganem Pesto Rosso',
-                            rating: 3,
-                            comment: 'War ganz okay für ein schnelles Mittagessen, aber beim Pesto fehlte etwas Geschmack. Nächstes Mal mehr Knoblauch.'
-                        },
-                        {
-                            id: 'history_pasta_3',
-                            date: '10.11.2025',
-                            specificName: 'Pasta Bolognese (Slow Cooked)',
-                            rating: 4,
-                            comment: 'Soße hat 4 Stunden geköchelt, super intensiv. Leider hatte ich nicht die perfekten Nudeln dazu.'
-                        }
-                    ]
                 },
                 {
                     id: 'dienstag', name: 'Dienstag', short: 'Di', emoji: '🍲', type: 'Eintopf', title: 'Gulasch',
-                    sections: [
-                        {
-                            title: '🥕 Beilagen',
-                            items: [
-                                'Spätzle',
-                                'Brot'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'mittwoch', name: 'Mittwoch', short: 'Mi', emoji: '🥔', type: 'Auflauf', title: 'Kartoffelgratin',
-                    sections: [
-                        {
-                            title: '🥕 Beilage',
-                            items: [
-                                'Beilagensalat (z.B. Gurke oder Feldsalat)'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'donnerstag', name: 'Donnerstag', short: 'Do', emoji: '🫘', type: 'Hausmannskost', title: 'Pasul',
-                    sections: [
-                        {
-                            title: '🥕 Info',
-                            items: [
-                                'Traditioneller albanischer Bohneneintopf'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'freitag', name: 'Freitag', short: 'Fr', emoji: '🍕', type: 'Ofen', title: 'Pizza',
-                    sections: [
-                        {
-                            title: '🥕 Details',
-                            items: [
-                                'Selbst belegt mit Lieblingszutaten'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'samstag', name: 'Samstag', short: 'Sa', emoji: '🥟', type: 'Süddeutsch', title: 'Maultaschen',
-                    sections: [
-                        {
-                            title: '🥕 Zubereitung',
-                            items: [
-                                'Geschmälzt (angebraten)',
-                                'In der Brühe'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'sonntag', name: 'Sonntag', short: 'So', emoji: '🥙', type: 'Griechisch', title: 'Döner oder Gyros-Teller',
-                    sections: [
-                        {
-                            title: '🥕 Extras',
-                            items: [
-                                'Tzatziki',
-                                'Fladenbrot'
-                            ]
-                        }
-                    ]
                 }
             ]
         },
@@ -427,93 +184,24 @@ export class Essensplan implements OnInit {
             days: [
                 {
                     id: 'montag', name: 'Montag', short: 'Mo', emoji: '🧆', type: 'Bowl', title: 'Falafel-Bowl',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                'Falafel-Bällchen',
-                                'Hummus',
-                                'Gemischter Salat',
-                                'Quinoa oder Reis'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'dienstag', name: 'Dienstag', short: 'Di', emoji: '🥢', type: 'Pfanne', title: 'Tofu-Stir-Fry',
-                    sections: [
-                        {
-                            title: '🥕 Details',
-                            items: [
-                                'Tofu in Sojasauce mariniert',
-                                'Buntes Wok-Gemüse'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'mittwoch', name: 'Mittwoch', short: 'Mi', emoji: '🍝', type: 'Pasta', title: 'Linsenbolognese',
-                    sections: [
-                        {
-                            title: '🥕 Info',
-                            items: [
-                                'Sehr proteinreich!',
-                                'Mit Vollkornnudeln'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'donnerstag', name: 'Donnerstag', short: 'Do', emoji: '🥣', type: 'Suppe', title: 'Herbstliche Suppe',
-                    sections: [
-                        {
-                            title: '🥕 Varianten',
-                            items: [
-                                'Kürbissuppe oder Tomatensuppe',
-                                'Mit Kokosmilch statt Sahne'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'freitag', name: 'Freitag', short: 'Fr', emoji: '🥘', type: 'Reispfanne', title: 'Gemüse-Paella',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                'Paella-Reis',
-                                'Erbsen, Paprika, Bohnen',
-                                'Safran für die Farbe'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'samstag', name: 'Samstag', short: 'Sa', emoji: '🍚', type: 'Karibisch', title: 'Jamaikanischer Reis',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                'Reis',
-                                'Mais',
-                                'Kidneybohnen',
-                                'Gewürze (Jerk Seasoning)'
-                            ]
-                        }
-                    ]
                 },
                 {
                     id: 'sonntag', name: 'Sonntag', short: 'So', emoji: '♻️', type: 'Frei', title: 'Resteverwertung oder Frei',
-                    isRestday: true,
-                    sections: [
-                        {
-                            title: '💡 Ideen',
-                            items: [
-                                'Gemüse aus dem Kühlschrank verarbeiten',
-                                'Essen gehen oder bestellen'
-                            ]
-                        }
-                    ]
                 }
             ]
         },
@@ -526,103 +214,28 @@ export class Essensplan implements OnInit {
             days: [
                 {
                     id: 'montag', name: 'Montag', short: 'Mo', emoji: '🍔', type: 'Fast Food', title: 'Burger',
-                    sections: [
-                        {
-                            title: '🥕 Varianten',
-                            items: [
-                                'Classic Burger (Rindfleisch)',
-                                'Chicken Burger',
-                                'Brioche Buns'
-                            ]
-                        }
-                    ],
-                    history: [
-                        {
-                            id: 'history_burger_1',
-                            date: '10.02.2026',
-                            specificName: 'Smash Burger (Double Smashed Patty)',
-                            rating: 5,
-                            comment: 'Richtig krass. Die Patties waren extrem knusprig am Rand. Mit Cheddar und selbstgemachter Sauce. Bestes Comfort Food!',
-                            recipeLink: 'https://example.com/smash-burger-recipe'
-                        }
-                    ]
                 },
                 {
-                    id: 'dienstag', name: 'Dienstag', short: 'Di', emoji: '🌶️', type: 'Tex-Mex', title: 'Chili sin Carne',
-                    sections: [
-                        {
-                            title: '🥕 Beilage',
-                            items: [
-                                'Frisches Baguette',
-                                'Oder Nachos'
-                            ]
-                        }
-                    ]
+                    id: 'dienstag', name: 'Dienstag', short: 'Di', emoji: '🌯', type: 'Fast Food', title: 'Burrito',
                 },
                 {
-                    id: 'mittwoch', name: 'Mittwoch', short: 'Mi', emoji: '🌮', type: 'Mexikanisch', title: 'Tacos',
-                    sections: [
-                        {
-                            title: '🥕 Details',
-                            items: [
-                                'Hard Shell oder Soft Tacos',
-                                'Hackfleisch oder veganes Hack',
-                                'Salsa und Guacamole'
-                            ]
-                        }
-                    ]
+                    id: 'mittwoch', name: 'Mittwoch', short: 'Mi', emoji: '🍝', type: 'Fast Food', title: 'Spaghetti',
                 },
                 {
-                    id: 'donnerstag', name: 'Donnerstag', short: 'Do', emoji: '🌭', type: 'Diner Style', title: 'Hot Dogs',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                'Hot Dog Buns',
-                                'Würstchen',
-                                'Röstzwiebeln, Ketchup, Senf, Gurkenrelish'
-                            ]
-                        }
-                    ]
+                    id: 'donnerstag', name: 'Donnerstag', short: 'Do', emoji: '🌮', type: 'Fast Food', title: 'Taco',
                 },
                 {
-                    id: 'freitag', name: 'Freitag', short: 'Fr', emoji: '🌯', type: 'Mexikanisch', title: 'Burritos',
-                    sections: [
-                        {
-                            title: '🥕 Details',
-                            items: [
-                                'Vollgepackt mit Reis, Bohnen & Fleisch/Ersatz',
-                                'Käse & Sour Cream'
-                            ]
-                        }
-                    ]
+                    id: 'freitag', name: 'Freitag', short: 'Fr', emoji: '🌯', type: 'Fast Food', title: 'Burrito',
                 },
                 {
-                    id: 'samstag', name: 'Samstag', short: 'Sa', emoji: '🍟', type: 'Fingerfood', title: 'Loaded Fries',
-                    sections: [
-                        {
-                            title: '🥕 Zutaten',
-                            items: [
-                                'Pommes Frites oder Kartoffeltaschen',
-                                'Toppings (Käsesauce, Jalapenos, Bacon-Bits)'
-                            ]
-                        }
-                    ]
+                    id: 'samstag', name: 'Samstag', short: 'Sa', emoji: '🍝', type: 'Fast Food', title: 'Spaghetti',
                 },
                 {
-                    id: 'sonntag', name: 'Sonntag', short: 'So', emoji: '🧀', type: 'Comfort Food', title: "Mac 'n' Cheese",
-                    sections: [
-                        {
-                            title: '🥕 Alternative',
-                            items: [
-                                'Oder fluffige Pancakes (süß)'
-                            ]
-                        }
-                    ]
+                    id: 'sonntag', name: 'Sonntag', short: 'So', emoji: '🌮', type: 'Fast Food', title: 'Taco',
                 }
             ]
         }
-    ];
+    ]
 
     get activeWeek(): WeekPlan {
         return this.weeks.find(w => w.id === this.activeWeekId) || this.weeks[0];
