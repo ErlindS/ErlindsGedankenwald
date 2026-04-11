@@ -1,0 +1,45 @@
+<section class="article-list-page">
+    <div class="page-header">
+        <h1 class="page-title">Artikel<span class="dot">.</span></h1>
+        <p class="page-subtitle">Gedanken, Ideen und Erfahrungen aus dem Gedankenwald.</p>
+    </div>
+
+    @if (loading) {
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Artikel werden geladen…</p>
+        </div>
+    }
+
+    @if (error) {
+        <div class="error-state">
+            <p>Artikel konnten nicht geladen werden. Bitte versuche es später erneut.</p>
+        </div>
+    }
+
+    @if (!loading && !error && articles.length === 0) {
+        <div class="empty-state">
+            <p>Noch keine Artikel veröffentlicht.</p>
+        </div>
+    }
+
+    @if (!loading && !error && articles.length > 0) {
+        <div class="articles-grid">
+            @for (article of articles; track article.id) {
+                <a class="article-card" [routerLink]="['/artikel', article.slug]">
+                    <div class="card-meta">
+                        <time>{{ formatDate(article.createdAt) }}</time>
+                        <div class="card-tags">
+                            @for (tag of getTagList(article.tags); track tag) {
+                                <span class="tag">{{ tag }}</span>
+                            }
+                        </div>
+                    </div>
+                    <h2 class="card-title">{{ article.title }}</h2>
+                    <p class="card-summary">{{ article.summary }}</p>
+                    <span class="card-link">Weiterlesen →</span>
+                </a>
+            }
+        </div>
+    }
+</section>

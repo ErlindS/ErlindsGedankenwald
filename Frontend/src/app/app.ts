@@ -1,8 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { PostCard } from './post-card/post-card';
 import { Header } from './header/header';
-import { Hero } from './hero/hero';
 import { Footer } from './footer/footer';
 
 @Component({

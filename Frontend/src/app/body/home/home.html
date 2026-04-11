@@ -1,0 +1,81 @@
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-inner">
+        <p class="hero-eyebrow">Willkommen im</p>
+        <h1 class="hero-title">
+            Erlinds <span class="highlight">Gedankenwald</span>
+        </h1>
+        <p class="hero-subtitle">
+            Gedanken über Nachhaltigkeit, Software-Entwicklung
+            und das minimalistische Leben.
+        </p>
+        <a href="#kategorien" class="btn-primary hero-cta">Entdecken</a>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="categories" id="kategorien">
+    <h2 class="section-title">Themen<span class="dot">.</span></h2>
+    <div class="category-grid">
+        <a class="category-card" routerLink="/kochen/essensplan">
+            <h3>Kochen</h3>
+            <p>Rezepte & Essenspläne</p>
+        </a>
+        <a class="category-card" href="#">
+            <h3>Kultur</h3>
+            <p>Manga, Bücher, Filme & mehr</p>
+        </a>
+        <a class="category-card" href="#">
+            <h3>Sport</h3>
+            <p>Joggen, Wandern & Badminton</p>
+        </a>
+        <a class="category-card" href="#">
+            <h3>Programmieren</h3>
+            <p>Projekte & Software</p>
+        </a>
+        <a class="category-card" href="#">
+            <h3>Technik</h3>
+            <p>Auto, Motorrad & Engineering</p>
+        </a>
+        <a class="category-card" href="#">
+            <h3>Sprachen</h3>
+            <p>Albanisch & Italienisch</p>
+        </a>
+    </div>
+</section>
+
+<!-- Latest Articles -->
+@if (latestArticles.length > 0) {
+    <section class="latest-articles">
+        <div class="latest-header">
+            <h2 class="section-title">Neueste Artikel<span class="dot">.</span></h2>
+            <a routerLink="/artikel" class="see-all">Alle Artikel →</a>
+        </div>
+        <div class="latest-grid">
+            @for (article of latestArticles; track article.id) {
+                <a class="latest-card" [routerLink]="['/artikel', article.slug]">
+                    <time>{{ formatDate(article.createdAt) }}</time>
+                    <h3>{{ article.title }}</h3>
+                    <p>{{ article.summary }}</p>
+                </a>
+            }
+        </div>
+    </section>
+}
+<section class="about-teaser">
+    <div class="about-inner">
+        <div class="about-text">
+            <h2>Über den <span class="highlight">Wald</span></h2>
+            <p>
+                Dieser Ort ist mein digitaler Rückzugsraum — ein Ort, an dem ich meine Gedanken
+                zu den verschiedensten Themen festhalte. Von Code-Snippets bis Wanderrouten,
+                von Essensplänen bis Sprachnotizen. Alles, was mich bewegt, findet hier seinen Platz.
+            </p>
+        </div>
+        <div class="about-visual">
+            <div class="tree t1"></div>
+            <div class="tree t2"></div>
+            <div class="tree t3"></div>
+        </div>
+    </div>
+</section>
