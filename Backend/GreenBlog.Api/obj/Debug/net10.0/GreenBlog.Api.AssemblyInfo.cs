@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GreenBlog.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c04d6c9a5b6897b06f24f316e2301bcbae3d6479")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3320dc170443632bc3a2e49a6cfe7f7bd5f92c1c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GreenBlog.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GreenBlog.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
