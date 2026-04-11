@@ -5,69 +5,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #f8faf9 0%, #e8f5e9 50%, #d8f3dc 100%);
-}
-
-.hero-background {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.gradient-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.6;
-    animation: float 20s ease-in-out infinite;
-
-    &.orb-1 {
-        width: 500px;
-        height: 500px;
-        background: linear-gradient(135deg, #95d5b2 0%, #52b788 100%);
-        top: -10%;
-        right: -5%;
-        animation-delay: 0s;
-    }
-
-    &.orb-2 {
-        width: 400px;
-        height: 400px;
-        background: linear-gradient(135deg, #d8f3dc 0%, #95d5b2 100%);
-        bottom: -15%;
-        left: -10%;
-        animation-delay: -7s;
-    }
-
-    &.orb-3 {
-        width: 300px;
-        height: 300px;
-        background: linear-gradient(135deg, #52b788 0%, #2d6a4f 100%);
-        top: 40%;
-        left: 50%;
-        animation-delay: -14s;
-    }
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-
-    25% {
-        transform: translate(30px, -30px) scale(1.05);
-    }
-
-    50% {
-        transform: translate(-20px, 20px) scale(0.95);
-    }
-
-    75% {
-        transform: translate(-30px, -20px) scale(1.02);
-    }
+    background: transparent;
 }
 
 .hero-content {
@@ -82,12 +20,14 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px) scale(0.98);
+        filter: blur(8px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
+        filter: blur(0);
     }
 }
 

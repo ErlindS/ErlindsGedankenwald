@@ -1,6 +1,6 @@
 <nav class="navbar">
   <div class="logo">Green<span>Blog</span></div>
-  <ul class="nav-links">
+  <ul class="nav-links" [class.active]="isMobileMenuOpen">
     <!-- Kochen -->
     <li>
       <a routerLink="/kochen/essensplan" class="direct-link">Kochen</a>
@@ -70,7 +70,7 @@
   </ul>
 
   <!-- Mobile menu button -->
-  <button class="mobile-menu-btn" aria-label="Menu">
+  <button class="mobile-menu-btn" aria-label="Menu" [class.open]="isMobileMenuOpen" (click)="toggleMobileMenu()">
     <span></span>
     <span></span>
     <span></span>

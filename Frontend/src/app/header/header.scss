@@ -190,10 +190,70 @@
   .navbar {
     .nav-links {
       display: none;
+
+      &.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: 1rem 5%;
+        border-bottom: 1px solid rgba(45, 106, 79, 0.1);
+        box-shadow: 0 10px 40px rgba(27, 67, 50, 0.15);
+        gap: 1rem;
+
+        .direct-link,
+        .dropdown {
+          width: 100%;
+        }
+
+        .dropdown-trigger {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .dropdown-menu {
+          position: static;
+          transform: none;
+          box-shadow: none;
+          border: none;
+          background: transparent;
+          padding: 0.5rem 0 0 1rem;
+          display: none;
+          visibility: visible;
+          opacity: 1;
+
+          &::before {
+            display: none;
+          }
+        }
+
+        .dropdown:focus-within .dropdown-menu,
+        .dropdown:hover .dropdown-menu {
+          display: block;
+        }
+      }
     }
 
     .mobile-menu-btn {
       display: flex;
+
+      &.open {
+        span:nth-child(1) {
+          transform: translateY(7px) rotate(45deg);
+        }
+        span:nth-child(2) {
+          opacity: 0;
+        }
+        span:nth-child(3) {
+          transform: translateY(-7px) rotate(-45deg);
+        }
+      }
     }
   }
 }
