@@ -1,36 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { ArticleService, ArticleSummary } from '../../services/article.service';
+import { CategoryTree } from '../../shared/category-tree/category-tree';
+import { CategoryNode } from '../../shared/category-tree/category-node';
 
 @Component({
     selector: 'app-home',
-    imports: [CommonModule, RouterLink],
+    imports: [CommonModule, RouterLink, CategoryTree],
     templateUrl: './home.html',
     styleUrl: './home.scss',
 })
-export class Home implements OnInit {
-    latestArticles: ArticleSummary[] = [];
+export class Home {
+    rootSelected = signal(false);
+    categorySelected = signal(false);
 
-    constructor(private articleService: ArticleService) { }
-
-    ngOnInit() {
-        this.articleService.getArticles().subscribe({
-            next: (articles) => {
-                this.latestArticles = articles.slice(0, 3);
-            },
-            error: () => {
-                // Silently fail — section just won't show
-            }
-        });
+    selectRoot(): void {
+        this.rootSelected.set(true);
     }
 
-    formatDate(dateStr: string): string {
-        const date = new Date(dateStr);
-        return date.toLocaleDateString('de-DE', {
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-        });
+    onCategorySelected(): void {
+        this.categorySelected.set(true);
     }
+
+    categories: CategoryNode[] = [
+        {
+            label: 'Blog',
+            content: 'Hier findest du meine Gedanken zu Nachhaltigkeit, Software-Entwicklung und dem minimalistischen Leben.',
+            children: [
+                { label: 'Kategorie A', content: 'Kategorie A' },
+                { label: 'Kategorie B', content: 'Kategorie B' },
+                { label: 'Kategorie C', content: 'Kategorie C' },
+            ],
+        },
+        {
+            label: 'Projekte',
+            content: 'Hier findest du eine Auswahl meiner Projekte – von kleinen Bastel-Ideen bis zu größeren Software-Vorhaben.',
+            children: [
+                { label: 'Roboter', content: 'Roboter' },
+                { label: 'EIS', content: 'EIS' },
+                { label: 'Webseite', content: 'Webseite' },
+            ],
+        },
+        {
+            label: 'Kultur',
+            content: 'Hier findest du meine Gedanken zu Kultur.',
+            children: [
+                { label: 'Kategorie A', content: 'Kategorie A' },
+                { label: 'Kategorie B', content: 'Kategorie B' },
+                { label: 'Kategorie C', content: 'Kategorie C' },
+            ],
+        },
+    ];
 }

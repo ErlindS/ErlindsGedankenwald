@@ -1,0 +1,26 @@
+<div class="tab-bar" role="tablist">
+  @for (node of nodes(); track node.label; let i = $index) {
+    <button
+      type="button"
+      class="tab-button"
+      role="tab"
+      [class.active]="selectedIndex() === i"
+      [attr.aria-selected]="selectedIndex() === i"
+      (click)="select(i)"
+    >
+      {{ node.label }}
+    </button>
+  }
+</div>
+
+@if (selectedIndex() !== null) {
+  @let selected = nodes()[selectedIndex()!];
+
+  @if (selected.children?.length) {
+    <app-category-tree [nodes]="selected.children!"></app-category-tree>
+  }
+
+  @if (selected.content) {
+    <p class="node-content">{{ selected.content }}</p>
+  }
+}

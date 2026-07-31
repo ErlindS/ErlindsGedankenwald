@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, MatTabsModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

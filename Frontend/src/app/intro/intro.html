@@ -1,0 +1,51 @@
+@if (showIntro()) {
+  <div class="intro-overlay" [class.leaving]="isLeaving()">
+    <div class="forest-scene" [class.flying]="isLeaving()">
+      <div class="particles">
+        @for (p of particles; track p.id) {
+          <span
+            class="particle"
+            [style.left.%]="p.left"
+            [style.width.px]="p.size"
+            [style.height.px]="p.size"
+            [style.animation-delay.s]="p.delay"
+            [style.animation-duration.s]="p.duration"
+          ></span>
+        }
+      </div>
+
+      <div class="trees trees-back">
+        @for (t of backTrees; track t.id) {
+          <span
+            class="tree-item back"
+            [style.border-bottom-width.px]="t.height"
+            [style.animation-delay.s]="t.delay"
+            [style.--fly-transform]="t.flyTransform"
+          ></span>
+        }
+      </div>
+
+      <div class="trees trees-front">
+        @for (t of frontTrees; track t.id) {
+          <span
+            class="tree-item front"
+            [style.border-bottom-width.px]="t.height"
+            [style.animation-delay.s]="t.delay"
+            [style.--fly-transform]="t.flyTransform"
+          ></span>
+        }
+      </div>
+    </div>
+
+    <div class="intro-content" [class.fading]="isLeaving()">
+      <p class="intro-eyebrow">Willkommen im</p>
+      <h1 class="intro-title">
+        @for (letter of titleLetters; track $index) {
+          <span class="letter" [style.animation-delay.ms]="220 + $index * 45">{{ letter === ' ' ? ' ' : letter }}</span>
+        }
+      </h1>
+    </div>
+
+    <div class="burst-flash" [class.active]="isLeaving()"></div>
+  </div>
+}
