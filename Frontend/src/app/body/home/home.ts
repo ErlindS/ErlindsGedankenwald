@@ -6,7 +6,7 @@ import { CategoryNode } from '../../shared/category-tree/category-node';
 
 @Component({
     selector: 'app-home',
-    imports: [CommonModule, RouterLink, CategoryTree],
+    imports: [CommonModule, CategoryTree],
     templateUrl: './home.html',
     styleUrl: './home.scss',
 })
@@ -50,5 +50,16 @@ export class Home {
                 { label: 'Kategorie C', content: 'Kategorie C' },
             ],
         },
+        {
+            label: 'Erlind',
+            content: 'Manchmal stelle ich, Erlind, mir selbst die Frage: "Wer soll dieser Erlind überhaupt sein?" und bestenfalls findet ist hier eine Antwort zu finden.',
+            children: [
+                { label: 'Wer ich bis jetzt war', content: 'Wer ich bis jetzt war' },
+                { label: 'Wer ich jetzt bin', content: 'Kategorie B' },
+                { label: 'Wer ich sein möchte', content: 'Kategorie C' },
+                { label: 'Politische Meinung', content: 'Politische Meinung' },
+                { label: 'Werte', content: 'Werte' },
+            ],
+        }
     ];
 }

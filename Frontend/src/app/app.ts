@@ -7,7 +7,6 @@ import { Intro } from './intro/intro';
   selector: 'app-root',
   imports: [
     RouterOutlet,
-    Header,
     Intro
   ],
   templateUrl: './app.html',
