@@ -36,9 +36,14 @@ export class Home {
             label: 'Projekte',
             content: 'Hier findest du eine Auswahl meiner Projekte – von kleinen Bastel-Ideen bis zu größeren Software-Vorhaben.',
             children: [
-                { label: 'Roboter', content: 'Roboter' },
-                { label: 'EIS', content: 'EIS' },
-                { label: 'Webseite', content: 'Webseite' },
+                { label: 'Movelink', content: 'Movelink' },
+                { label: 'Erlindsgedankenwald', content: 'Erlindsgedankenwald' },
+                { label: 'Chess2', content: 'Chess2' },
+                { label: 'ConfirmationBias', content: 'ConfirmationBias' },
+                { label: 'HyprFokus', content: 'HyprFokus' },
+                { label: 'AutomatedSoftwareDocumentation', content: 'AutomatedSoftwareDocumentation' },
+                { label: 'AutomatedSpriteGeneration', content: 'AutomatedSpriteGeneration' },
+                { label: 'AutomatedAdvertising', content: 'AutomatedAdvertising' },
             ],
         },
         {
