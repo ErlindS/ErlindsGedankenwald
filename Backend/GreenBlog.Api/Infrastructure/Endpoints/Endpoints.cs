@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-
+using GreenBlog.Api.Models;
 namespace GreenBlog.Api.Data;
 
 public static class Endpoints

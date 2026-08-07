@@ -1,36 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj": {}
+    "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj": {}
   },
   "projects": {
-    "c:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj": {
+    "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+        "projectUniqueName": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
         "projectName": "GreenBlog.Api",
-        "projectPath": "c:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+        "projectPath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
         "packagesPath": "C:\\Users\\erlin\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\obj\\",
+        "outputPath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\erlin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\erlin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -45,10 +39,11 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.300"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
@@ -83,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.302/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

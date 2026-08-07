@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TM9SPRgpl5M=",
+  "dgSpecHash": "2Msa+y8u8YI=",
   "success": true,
-  "projectFilePath": "c:\\Users\\erlin\\Documents\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+  "projectFilePath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\erlin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\erlin\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
@@ -38,5 +38,30 @@
     "C:\\Users\\erlin\\.nuget\\packages\\system.composition.runtime\\9.0.0\\system.composition.runtime.9.0.0.nupkg.sha512",
     "C:\\Users\\erlin\\.nuget\\packages\\system.composition.typedparts\\9.0.0\\system.composition.typedparts.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Das Paket \"Microsoft.OpenApi\" 2.0.0 weist eine bekannte hoch Schweregrad-Sicherheitsanfälligkeit auf, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc.",
+      "projectPath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Das Paket \"SQLitePCLRaw.lib.e_sqlite3\" 2.1.11 weist eine bekannte hoch Schweregrad-Sicherheitsanfälligkeit auf, https://github.com/advisories/GHSA-2m69-gcr7-jv3q.",
+      "projectPath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\erlin\\repo\\ErlindsGedankenwald\\Backend\\GreenBlog.Api\\GreenBlog.Api.csproj",
+      "libraryId": "SQLitePCLRaw.lib.e_sqlite3",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }
