@@ -1,3 +1,2 @@
-Backend/GreenBlog.Api/obj
-Backend/GreenBlog.Api/bin
-Backend/GreenBlog.Api/
+/Backend/GreenBlog.Api/bin/
+/Backend/GreenBlog.Api/obj/
