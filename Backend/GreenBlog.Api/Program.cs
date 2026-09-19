@@ -6,6 +6,9 @@ using OpenTelemetry.Trace;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddHealthChecks();
+builder.Services.AddServiceDiscovery();
+
 var dbDirectory = Path.Combine(builder.Environment.ContentRootPath, "Infrastructure", "Database");
 Directory.CreateDirectory(dbDirectory);
 var dbPath = Path.Combine(dbDirectory, "database.db");
@@ -17,10 +20,23 @@ builder
     .Services.AddOpenTelemetry()
     .WithTracing(tracing =>
     {
-        tracing.AddHttpClientInstrumentation().AddConsoleExporter();
+        tracing.AddHttpClientInstrumentation().AddConsoleExporter().AddOtlpExporter();
+    })
+    .WithMetrics(metrics =>
+    {
+        metrics.AddHttpClientInstrumentation().AddOtlpExporter();
     });
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/alive");
 
 app.ApplyMigrations();
 app.MapEndpoints();

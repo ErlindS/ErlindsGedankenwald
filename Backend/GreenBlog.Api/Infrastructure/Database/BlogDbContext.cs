@@ -7,4 +7,5 @@ public class BlogDbContext : DbContext
         : base(options) { }
 
     public DbSet<Post> Posts => Set<Post>();
+    public DbSet<Foodrecipe> recipe => Set<Foodrecipe>();
 }
