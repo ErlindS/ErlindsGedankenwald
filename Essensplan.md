@@ -45,3 +45,11 @@ Beilagen: Pfannkuchen, Milchshakes, Cole Slaw (Krautsalat), Süßkartoffel-Pomme
 Abends-Extra: Hummus-Dip, Gefüllte Weinblätter, Bruschetta.
 
 Grundsätzlich morgens immer Früchte / Abends Gemüse?
+
+
+Rezepte:
+
+Nudeln
+Brot
+Pizza
+Wraps
