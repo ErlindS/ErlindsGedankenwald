@@ -21,33 +21,6 @@
     cursor: pointer;
     transition: var(--transition-fast);
 
-    &::before {
-        content: '🌲';
-        margin-right: 0.5rem;
-        font-size: 0.8em;
-        opacity: 0.75;
-    }
-
-    // Branch that grows in from the center when the root tab becomes active
-    &::after {
-        content: '';
-        position: absolute;
-        left: 1.5rem;
-        right: 1.5rem;
-        bottom: 0;
-        height: 3px;
-        background: var(--primary);
-        transform: scaleX(0);
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    &.active {
-        color: var(--primary-dark);
-
-        &::after {
-            transform: scaleX(1);
-        }
-    }
 }
 
 // ─── HERO ──────────────────────────────────────────────────────────────
@@ -65,15 +38,6 @@
         var(--bg);
     overflow: hidden;
 
-    /* Subtle animated gradient shift */
-    &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(circle at 60% 40%, rgba(216, 243, 220, 0.4) 0%, transparent 60%);
-        animation: hero-breathe 10s ease-in-out infinite alternate;
-        pointer-events: none;
-    }
 }
 
 @keyframes hero-breathe {

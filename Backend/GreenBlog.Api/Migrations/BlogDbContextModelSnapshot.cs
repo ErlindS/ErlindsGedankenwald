@@ -15,6 +15,17 @@ namespace GreenBlog.Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.3");
 
+            modelBuilder.Entity("GreenBlog.Api.Models.Foodrecipe", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("recipe");
+                });
+
             modelBuilder.Entity("GreenBlog.Api.Models.Post", b =>
                 {
                     b.Property<int>("Id")
